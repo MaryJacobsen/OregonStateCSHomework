@@ -1,0 +1,12 @@
+Training File: trainingSet.txt
+Testing File: trainingSet.txt
+Accuracy on Training Set: 1.0
+Number Correct: 108
+Training Set Size: 108
+
+
+Training File: trainingSet.txt
+Testing File: testSet.txt
+Accuracy on Test Set: 0.916666666667
+Number Correct: 110
+Test Set Size: 120
