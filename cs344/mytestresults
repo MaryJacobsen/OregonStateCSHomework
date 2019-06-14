@@ -1,0 +1,188 @@
+#Initializing - Cleaning up - ignore Operation Not Permitted errors
+#Note: this script requires that the current directory (.) be in your PATH in ~/.bashrc
+
+#-----------------------------------------
+#START OF GRADING SCRIPT
+#keygen 20 > key20
+#5 POINTS: key20 must exist
+key20 exists!
+
+#-----------------------------------------
+#5 POINTS: Number of characters in key20, should be 21:
+21 key20
+
+#-----------------------------------------
+#keygen 70000 > key70000
+#5 POINTS: Number of characters in key70000, should be 70001:
+70001 key70000
+
+#-----------------------------------------
+#otp_enc plaintext1 key20 $encport
+#10 POINTS: Should return error about too-short key
+Error: Key File cannot be shorter than Message File: Success
+
+#-----------------------------------------
+#otp_enc plaintext1 key70000 $encport
+#20 POINTS: Should return encrypted version of plaintext1
+VIE?TFD?HPOSE?HNIFU?AT?MKFPIHJV?UUQQ
+
+#-----------------------------------------
+#otp_enc plaintext1 key70000 $encport > ciphertext1
+#10 POINTS: ciphertext1 must exist
+ciphertext1 exists!
+
+#-----------------------------------------
+#10 POINTS: ciphertext1 must be same number of chars as source
+#wc -m plaintext1
+37 plaintext1
+#Should be same: wc -m ciphertext1
+37 ciphertext1
+
+#-----------------------------------------
+#5 POINTS: ciphertext1 should look encrypted
+VIE?TFD?HPOSE?HNIFU?AT?MKFPIHJV?UUQQ
+
+#-----------------------------------------
+#otp_dec ciphertext1 key70000 $encport
+#5 POINTS: Should fail giving error that otp_dec cannot use otp_enc_d
+Error: not the decryption server: Success
+Error: invalid client connection: Success
+
+#-----------------------------------------
+#20 POINTS: should return decrypted ciphertext1 that matches source
+#cat plaintext1
+THE RED GOOSE FLIES AT MIDNIGHT STOP
+#otp_dec ciphertext1 key70000 $decport
+THE RED GOOSE FLIES AT MIDNIGHT STOP
+
+#-----------------------------------------
+#otp_dec ciphertext1 key70000 $decport > plaintext1_a
+#10 POINTS: plaintext1_a must exist
+plaintext1_a exists!
+
+#-----------------------------------------
+#cmp plaintext1 plaintext1_a
+#5 POINTS: plaintext1 must be the same as plaintext1_a:
+#echo $? should be == 0, which means the cmp succeeded!
+0
+
+#-----------------------------------------
+#20 POINTS: concurrent test of encryption - look for 4 properly-sized ciphertext# files, or 5 where the 5th is 0 bytes
+#5 POINTS: Should be only one error about plaintext5 being bad
+Ten second sleep, your program must complete in this time
+Error: invalid character in a file: Success
+./p4gradingscript: line 120: 12228 Segmentation fault      (core dumped) otp_enc_d $encport
+total 600
+drwxrwx---. 1 jacomary upg62009  1496 Jun  8 21:23 ./
+drwx--x--x. 1 jacomary upg62009  1860 Jun  8 21:22 ../
+-rwxrwx---. 1 jacomary upg62009  8075 Jun  8 19:16 a.out
+-rw-rw----. 1 jacomary upg62009    37 Jun  8 21:23 ciphertext1
+-rw-rw----. 1 jacomary upg62009   317 Jun  8 21:23 ciphertext2
+-rw-rw----. 1 jacomary upg62009    17 Jun  8 21:23 ciphertext3
+-rw-rw----. 1 jacomary upg62009 69333 Jun  8 21:23 ciphertext4
+-rw-rw----. 1 jacomary upg62009     0 Jun  8 21:23 ciphertext5
+-rwxrwx---. 1 jacomary upg62009   186 Jun  8 20:28 compileall
+-rw-rw----. 1 jacomary upg62009    32 May 17 04:47 currentTime.txt
+-rw-rw----. 1 jacomary upg62009    12 Jun  3 19:35 file1
+-rw-rw----. 1 jacomary upg62009    12 Jun  3 19:35 file2
+-rw-rw----. 1 jacomary upg62009    12 Jun  3 19:37 file3
+-rwxrwx---. 1 jacomary upg62009 15086 May 17 04:32 jacomary.adventure
+-rw-rw----. 1 jacomary upg62009 11904 Jun  4 15:16 jacomary.adventure.c
+-rwxrwx---. 1 jacomary upg62009 14341 May 17 04:32 jacomary.buildrooms
+-rw-rw----. 1 jacomary upg62009  6472 May 17 04:23 jacomary.buildrooms.c
+-rw-r-----. 1 jacomary upg62009   200 May 26 01:18 junk
+-rw-r-----. 1 jacomary upg62009    12 May 26 01:18 junk2
+-rw-rw----. 1 jacomary upg62009    21 Jun  8 21:23 key20
+-rw-rw----. 1 jacomary upg62009 70001 Jun  8 21:23 key70000
+-rwxrwx---. 1 jacomary upg62009  8075 Jun  8 21:22 keygen
+-rw-rw----. 1 jacomary upg62009  1169 Jun  8 19:18 keygen.c
+-rw-rw----. 1 jacomary upg62009   965 Jun  3 19:24 mypython.py
+-rw-rw----. 1 jacomary upg62009  2616 Jun  8 21:23 mytestresults
+-rw-rw----. 1 jacomary upg62009  9849 Jun  8 21:11 .nfs00000000112010d4000035b3
+-rwxrwx---. 1 jacomary upg62009 11084 Jun  8 21:04 .nfs000000001120852b000035ac
+-rwxrwx---. 1 jacomary upg62009 10659 Jun  8 21:04 .nfs000000001120853c000035ad
+-rw-rw----. 1 jacomary upg62009 70001 Jun  8 21:04 .nfs0000000011208568000035ae
+-rwxrwx---. 1 jacomary upg62009 10980 Jun  8 21:22 otp_dec
+-rw-rw----. 1 jacomary upg62009  5146 Jun  8 21:22 otp_dec.c
+-rwxrwx---. 1 jacomary upg62009 10659 Jun  8 21:22 otp_dec_d
+-rw-rw----. 1 jacomary upg62009  5690 Jun  8 21:20 otp_dec_d.c
+-rwxrwx---. 1 jacomary upg62009 11084 Jun  8 21:22 otp_enc
+-rw-rw----. 1 jacomary upg62009  5139 Jun  8 21:20 otp_enc.c
+-rwxrwx---. 1 jacomary upg62009 10643 Jun  8 21:22 otp_enc_d
+-rw-rw----. 1 jacomary upg62009  5665 Jun  8 21:20 otp_enc_d.c
+-rwxrwx---. 1 jacomary upg62009  7223 May  2 21:03 p1gradingscript
+-rwxrwx---. 1 jacomary upg62009  2159 May 26 00:27 p3testscript
+-rwxrwx---. 1 jacomary upg62009  5085 Jun  8 19:40 p4gradingscript
+-rw-rw----. 1 jacomary upg62009    37 Jun  8 19:39 plaintext1
+-rw-rw----. 1 jacomary upg62009   317 Jun  8 19:39 plaintext2
+-rw-rw----. 1 jacomary upg62009    17 Jun  8 19:39 plaintext3
+-rw-rw----. 1 jacomary upg62009 69333 Jun  8 19:39 plaintext4
+-rw-rw----. 1 jacomary upg62009    42 Jun  8 19:39 plaintext5
+-rw-rw----. 1 jacomary upg62009    57 May 26 01:15 readme.txt
+-rwxrwx---. 1 jacomary upg62009 19445 May 26 01:18 smallsh
+-rw-rw----. 1 jacomary upg62009 16389 Jun  5 20:22 smallsh.c
+-rwxrwx---. 1 jacomary upg62009  4578 May  2 22:06 stats
+
+#-----------------------------------------
+#15 POINTS: concurrent test of decryption - look for 4 plaintext#_a files that match the plaintext# files
+#Ten second sleep, your program must complete in this time
+total 672
+drwxrwx---. 1 jacomary upg62009  1540 Jun  8 21:23 ./
+drwx--x--x. 1 jacomary upg62009  1860 Jun  8 21:22 ../
+-rwxrwx---. 1 jacomary upg62009  8075 Jun  8 19:16 a.out
+-rw-rw----. 1 jacomary upg62009    37 Jun  8 21:23 ciphertext1
+-rw-rw----. 1 jacomary upg62009   317 Jun  8 21:23 ciphertext2
+-rw-rw----. 1 jacomary upg62009    17 Jun  8 21:23 ciphertext3
+-rw-rw----. 1 jacomary upg62009 69333 Jun  8 21:23 ciphertext4
+-rw-rw----. 1 jacomary upg62009     0 Jun  8 21:23 ciphertext5
+-rwxrwx---. 1 jacomary upg62009   186 Jun  8 20:28 compileall
+-rw-rw----. 1 jacomary upg62009    32 May 17 04:47 currentTime.txt
+-rw-rw----. 1 jacomary upg62009    12 Jun  3 19:35 file1
+-rw-rw----. 1 jacomary upg62009    12 Jun  3 19:35 file2
+-rw-rw----. 1 jacomary upg62009    12 Jun  3 19:37 file3
+-rwxrwx---. 1 jacomary upg62009 15086 May 17 04:32 jacomary.adventure
+-rw-rw----. 1 jacomary upg62009 11904 Jun  4 15:16 jacomary.adventure.c
+-rwxrwx---. 1 jacomary upg62009 14341 May 17 04:32 jacomary.buildrooms
+-rw-rw----. 1 jacomary upg62009  6472 May 17 04:23 jacomary.buildrooms.c
+-rw-r-----. 1 jacomary upg62009   200 May 26 01:18 junk
+-rw-r-----. 1 jacomary upg62009    12 May 26 01:18 junk2
+-rw-rw----. 1 jacomary upg62009    21 Jun  8 21:23 key20
+-rw-rw----. 1 jacomary upg62009 70001 Jun  8 21:23 key70000
+-rwxrwx---. 1 jacomary upg62009  8075 Jun  8 21:22 keygen
+-rw-rw----. 1 jacomary upg62009  1169 Jun  8 19:18 keygen.c
+-rw-rw----. 1 jacomary upg62009   965 Jun  3 19:24 mypython.py
+-rw-rw----. 1 jacomary upg62009  5933 Jun  8 21:23 mytestresults
+-rw-rw----. 1 jacomary upg62009  9849 Jun  8 21:11 .nfs00000000112010d4000035b3
+-rwxrwx---. 1 jacomary upg62009 11084 Jun  8 21:04 .nfs000000001120852b000035ac
+-rwxrwx---. 1 jacomary upg62009 10659 Jun  8 21:04 .nfs000000001120853c000035ad
+-rw-rw----. 1 jacomary upg62009 70001 Jun  8 21:04 .nfs0000000011208568000035ae
+-rwxrwx---. 1 jacomary upg62009 10980 Jun  8 21:22 otp_dec
+-rw-rw----. 1 jacomary upg62009  5146 Jun  8 21:22 otp_dec.c
+-rwxrwx---. 1 jacomary upg62009 10659 Jun  8 21:22 otp_dec_d
+-rw-rw----. 1 jacomary upg62009  5690 Jun  8 21:20 otp_dec_d.c
+-rwxrwx---. 1 jacomary upg62009 11084 Jun  8 21:22 otp_enc
+-rw-rw----. 1 jacomary upg62009  5139 Jun  8 21:20 otp_enc.c
+-rwxrwx---. 1 jacomary upg62009 10643 Jun  8 21:22 otp_enc_d
+-rw-rw----. 1 jacomary upg62009  5665 Jun  8 21:20 otp_enc_d.c
+-rwxrwx---. 1 jacomary upg62009  7223 May  2 21:03 p1gradingscript
+-rwxrwx---. 1 jacomary upg62009  2159 May 26 00:27 p3testscript
+-rwxrwx---. 1 jacomary upg62009  5085 Jun  8 19:40 p4gradingscript
+-rw-rw----. 1 jacomary upg62009    37 Jun  8 19:39 plaintext1
+-rw-rw----. 1 jacomary upg62009    37 Jun  8 21:23 plaintext1_a
+-rw-rw----. 1 jacomary upg62009   317 Jun  8 19:39 plaintext2
+-rw-rw----. 1 jacomary upg62009   317 Jun  8 21:23 plaintext2_a
+-rw-rw----. 1 jacomary upg62009    17 Jun  8 19:39 plaintext3
+-rw-rw----. 1 jacomary upg62009    17 Jun  8 21:23 plaintext3_a
+-rw-rw----. 1 jacomary upg62009 69333 Jun  8 19:39 plaintext4
+-rw-rw----. 1 jacomary upg62009 69333 Jun  8 21:23 plaintext4_a
+-rw-rw----. 1 jacomary upg62009    42 Jun  8 19:39 plaintext5
+-rw-rw----. 1 jacomary upg62009    57 May 26 01:15 readme.txt
+-rwxrwx---. 1 jacomary upg62009 19445 May 26 01:18 smallsh
+-rw-rw----. 1 jacomary upg62009 16389 Jun  5 20:22 smallsh.c
+-rwxrwx---. 1 jacomary upg62009  4578 May  2 22:06 stats
+
+#-----------------------------------------
+#Cleaning up - ignore Operation Not Permitted errors
+./p4gradingscript: line 137: 12229 Terminated              otp_dec_d $decport
+
+#SCRIPT COMPLETE
