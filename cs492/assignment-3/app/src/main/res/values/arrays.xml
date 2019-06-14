@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "pref_units">
+        <item></item>
+        <item>Imperial</item>
+        <item>Metric</item>
+        <item>Kelvin</item>
+    </string-array>
+    <string-array name = "pref_unit_entries">
+        <item></item>
+        <item>@string/pref_unit_entry_imperial</item>
+        <item>@string/pref_unit_entry_metric</item>
+        <item>@string/pref_unit_entry_kelvin</item>
+    </string-array>
+    <string-array name = "pref_unit_values">
+        <item></item>
+        <item>@string/pref_unit_value_imperial</item>
+        <item>@string/pref_unit_value_metric</item>
+        <item>@string/pref_unit_value_kelvin</item>
+    </string-array>
+</resources>
