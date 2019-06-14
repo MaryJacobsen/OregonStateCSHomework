@@ -1,0 +1,3 @@
+5, rake yard
+1, do hw
+2, juggle
