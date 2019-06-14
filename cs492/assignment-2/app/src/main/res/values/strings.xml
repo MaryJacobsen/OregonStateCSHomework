@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Connected Weather</string>
+    <string name="loading_error_message">We were unable to query weather.  Please check your internet connectivity and try again.</string>
+    <string name="action_share">Share</string>
+    <string name="action_view_location">View Location</string>
+    <string name="share_chooser_title">Share to</string>
+</resources>
